@@ -1,7 +1,7 @@
 # ADR 001: Technology Stack Choice for UnioLoci
 
 **Status:** Accepted  
-**Date:** 2025-11-17
+**Date:** 2025-12-12
 
 ---
 

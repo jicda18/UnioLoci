@@ -1,7 +1,7 @@
 # Vision & Scope
 
 **Version:** 1.2  
-**Date:** November 17th, 2025  
+**Date:** December 12th, 2025  
 **Author:** Josué Cruz
 
 # 1. Name: **UnioLoci**
@@ -52,7 +52,8 @@ The MVP focuses on delivering a minimal but solid, fast, and collaborative share
 | Calendar Creation                   | Create a shared calendar for a group.                                                                  | Core container for collaboration.            |
 | Join via Shareable Link             | Users can join a calendar through a unique URL.                                                        | Removes friction.                            |
 | Unified Event CRUD                  | Create, edit, move, and delete events.                                                                 | Essential functionality.                     |
-| Real-Time Updates                   | WebSocket-based live sync for all event changes.                                                       | Delivers the collaborative “document” feel.  |
+| Real-Time Updates                   | WebSocket-based live sync for all event changes.                                                       | Delivers the collaborative "document" feel.  |
+| User Presence Indicators            | Shows which users are viewing or editing events in real-time.                                          | Enhances collaborative awareness.            |
 | Calendar View (Month)               | A single, clean monthly view.                                                                          | Keeps MVP simple while meeting expectations. |
 | Mobile & Desktop UI                 | A responsive interface.                                                                                | Practical usability.                         |
 | **AI: Natural Language → Event**    | Users can type text such as “Planning meeting next Friday at 3pm,” and the system generates the event. | Provides meaningful AI practice.             |
@@ -87,8 +88,7 @@ The MVP is successful if:
 - **Backend:** NestJS (REST or GraphQL) + WebSockets
 - **Frontend:** React (with Zustand or TanStack Query)
 - **Real-Time:** WebSockets with minimal sync strategy
-- **Database:** PostgreSQL (or Supabase)
-- **AI Integration:** OpenAI API for text-to-event and description generation
-- **Deployment:** Vercel (frontend) + Railway/Fly.io (backend)
+- **Database:** PostgreSQL
+- **AI Integration:** OpenAI API for text-to-event and description generation (using TOON for structured output)
 
 ---

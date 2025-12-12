@@ -2,7 +2,7 @@
 
 **Project:** UnioLoci  
 **Version:** 1.0  
-**Date:** November 17th, 2025  
+**Date:** December 12th, 2025  
 **Author:** Josué Cruz
 
 ---
@@ -132,7 +132,7 @@ It consists of:
 
 ### FR-10 Real-Time Sync
 
-- All event actions update to all connected users within **3 seconds**.
+- All event actions and user presence updates update to all connected users within **3 seconds**.
 
 ---
 
@@ -202,7 +202,6 @@ Output:
 ### NFR-5 Data Integrity
 
 - No event should be overwritten incorrectly during real-time edits.
-- No event should be overwritten incorrectly during real-time edits.
 
 ## 4.4 Usability
 
@@ -240,7 +239,7 @@ Output:
 
 - OpenAI API
 - Prompt templates for:
-  - Natural language → event
+  - Natural language → event (using TOON for structured output)
   - Description generation
 
 ---
@@ -282,4 +281,4 @@ Output:
 
 **Author:**  
 Josué Cruz — Senior Full Stack Developer  
-Date: November 17th, 2025
+Date: December 12th, 2025

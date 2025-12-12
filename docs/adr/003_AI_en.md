@@ -1,7 +1,7 @@
 # ADR 003: AI Technology Choice for UnioLoci
 
 **Status:** Accepted  
-**Date:** 2025-11-17
+**Date:** 2025-12-12
 
 ---
 

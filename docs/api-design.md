@@ -2,7 +2,7 @@
 
 **Project:** UnioLoci  
 **Version:** 1.0  
-**Date:** November 17th, 2025  
+**Date:** December 12th, 2025  
 **Author:** Josué Cruz
 
 ---
@@ -97,23 +97,28 @@ The API is versioned via the URL prefix. The current version is `v1`.
   - **Description:** Allows a user to leave a calendar.
   - **Response (204 No Content):**
 
+- **`PATCH /calendars/{calendarId}/members/me`**
+  - **Description:** Updates the authenticated user's settings for this calendar, such as reminder preferences.
+  - **Body:** `{ "reminderMinutesBefore": 30 }`
+  - **Response (200 OK):** The updated member object.
+
 ### Events (`/calendars/{calendarId}/events`)
 
 Events are always nested under a calendar.
 
-- **`POST /events`**
+- **`POST /calendars/{calendarId}/events`**
 
   - **Description:** Creates a new event in a specific calendar.
-  - **Body:** `{ "calendarId": "...", "title": "...", "startTime": "...", "endTime": "..." }`
+  - **Body:** `{ "title": "...", "startTime": "...", "endTime": "..." }`
   - **Response (201 Created):** The new event object.
 
-- **`POST /events/ai`**
+- **`POST /calendars/{calendarId}/events/ai`**
 
   - **Description:** Creates an event from a natural language string.
-  - **Body:** `{ "calendarId": "...", "text": "Sprint planning next Thursday at 2 pm" }`
+  - **Body:** `{ "text": "Sprint planning next Thursday at 2 pm" }`
   - **Response (201 Created):** The new event object, including the AI-generated description.
 
-- **`GET /events?calendarId={calendarId}&from={iso_date}&to={iso_date}`**
+- **`GET /calendars/{calendarId}/events?from={iso_date}&to={iso_date}`**
 
   - **Description:** Retrieves all events for a given calendar within a specific date range.
   - **Response (200 OK):** `[ { event_object_1 }, { event_object_2 } ]`
@@ -132,7 +137,7 @@ Events are always nested under a calendar.
 
 ## 5. Real-time Communication (WebSockets)
 
-For real-time updates, clients will connect to a WebSocket endpoint. The backend will push messages to all connected members of a calendar when an event is created, updated, or deleted.
+For real-time updates and user presence, clients will connect to a WebSocket endpoint. The backend will push messages to all connected members of a calendar for event changes and user activities.
 
 - **Event:** `event:created`
   - **Payload:** The full new event object.
@@ -140,6 +145,22 @@ For real-time updates, clients will connect to a WebSocket endpoint. The backend
   - **Payload:** The full updated event object.
 - **Event:** `event:deleted`
   - **Payload:** `{ "eventId": "...", "calendarId": "..." }`
+
+- **Event:** `user:joined_calendar`
+  - **Payload:** `{ "userId": "...", "calendarId": "...", "userName": "..." }`
+- **Event:** `user:left_calendar`
+  - **Payload:** `{ "userId": "...", "calendarId": "...", "userName": "..." }`
+
+- **Event:** `event:opened`
+  - **Payload:** `{ "eventId": "...", "calendarId": "...", "userId": "..." }`
+- **Event:** `event:editing_started`
+  - **Payload:** `{ "eventId": "...", "calendarId": "...", "userId": "..." }`
+- **Event:** `event:editing_cancelled`
+  - **Payload:** `{ "eventId": "...", "calendarId": "...", "userId": "..." }`
+- **Event:** `event:creating_started`
+  - **Payload:** `{ "calendarId": "...", "userId": "..." }`
+- **Event:** `event:creating_cancelled`
+  - **Payload:** `{ "calendarId": "...", "userId": "..." }`
 
 ---
 
