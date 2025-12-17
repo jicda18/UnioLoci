@@ -122,6 +122,12 @@ It consists of:
 
 - User can modify any event fields.
 
+### FR-7.1 Partial Event Updates
+
+- When updating an event, only the fields that have changed are sent to the server.
+- This prevents conflicts with concurrent edits by other users, allowing simultaneous modifications as long as different fields are affected.
+- Conflicts only occur if the same field is updated by multiple users at the same time.
+
 ### FR-8 Move Event
 
 - Drag-and-drop repositioning on the monthly grid.
@@ -213,6 +219,11 @@ Output:
 
 - Users should create an event in **≤ 3 steps**.
 
+### NFR-9 Conflict Mitigation in Editing
+
+- The interface must display, in a clear and non-intrusive manner, when another user is modifying a resource (event, calendar, etc.).
+- This helps users avoid conflicts by providing awareness of concurrent edits.
+
 ---
 
 # 5. System Architecture (Overview)
@@ -271,7 +282,8 @@ Output:
 - Private events
 - Public display mode
 - Chat/comments inside events
-- AI suggestions for best meeting times
+- AI suggestions for best meeting times: Suggests at least 3 time slots that fit the team's preferences
+- AI can add a meeting template
 - AI conflict detection
 - Event creation from documents or images
 

@@ -154,7 +154,8 @@ Prioritization: High for core functionalities (authentication, calendars, events
 3. System validates and updates the event.  
    **Alternative Flows:**
 
-- If data is invalid, system prompts correction.  
+- If data is invalid, system prompts correction.
+- If another user starts editing the same event, system displays a small avatar indicator next to the event to show who is editing it.  
   **Postconditions:** Event is updated and synced in real-time.
 
 ### UC-10: Move Event

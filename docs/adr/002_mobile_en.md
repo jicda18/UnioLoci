@@ -91,13 +91,9 @@ The alternatives considered were:
 
 ## Reason
 
-Flutter offers the best balance between performance, visual flexibility, and user experience. Furthermore:
+Flutter delivers significant benefits to users and the product by promising a fluid, native-like user experience and consistent, modern interfaces across platforms. It offers the best balance between performance, visual flexibility, and overall user experience, enabling the creation of complex interfaces like a calendar without friction. It integrates seamlessly with WebSockets for real-time synchronization, avoids common React Native issues such as library fragmentation and UI inconsistencies, and provides a consistent and modern mobile experience with a single codebase.
 
-- It allows building complex interfaces (like a calendar) without friction.
-- It integrates very well with WebSockets for real-time synchronization.
-- It avoids common React Native issues (fragmentation, UI inconsistencies).
-- It provides a consistent and modern mobile experience with a single codebase.
-- Practicing Dart is part of the project's goal.
+Additionally, this choice aligns with the developer's objectives to practice and master a modern mobile technology that allows for the development of high-quality apps without the usual limitations of React Native. Practicing Dart provides valuable learning in a stable ecosystem with a promising future.
 
 ---
 

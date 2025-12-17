@@ -46,19 +46,19 @@ The MVP focuses on delivering a minimal but solid, fast, and collaborative share
 
 ## 5.1 In Scope
 
-| Feature                             | Description                                                                                            | Justification                                |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
-| Magic-Link Authentication           | Login via email-only magic link. No passwords.                                                         | Fast implementation; modern UX.              |
-| Calendar Creation                   | Create a shared calendar for a group.                                                                  | Core container for collaboration.            |
-| Join via Shareable Link             | Users can join a calendar through a unique URL.                                                        | Removes friction.                            |
-| Unified Event CRUD                  | Create, edit, move, and delete events.                                                                 | Essential functionality.                     |
-| Real-Time Updates                   | WebSocket-based live sync for all event changes.                                                       | Delivers the collaborative "document" feel.  |
-| User Presence Indicators            | Shows which users are viewing or editing events in real-time.                                          | Enhances collaborative awareness.            |
-| Calendar View (Month)               | A single, clean monthly view.                                                                          | Keeps MVP simple while meeting expectations. |
-| Mobile & Desktop UI                 | A responsive interface.                                                                                | Practical usability.                         |
-| **AI: Natural Language → Event**    | Users can type text such as “Planning meeting next Friday at 3pm,” and the system generates the event. | Provides meaningful AI practice.             |
-| **AI: Auto-Generated Descriptions** | AI creates event descriptions based on the title or input text.                                        | Enhances UX and demonstrates AI integration. |
-| Reminders (Email)                   | Simple email notifications before an event.                                                            | Basic follow-up functionality.               |
+| Feature                             | Description                                                                                                                           | Justification                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Magic-Link Authentication           | Login via email-only magic link. No passwords.                                                                                        | Fast implementation; modern UX.                           |
+| Calendar Creation                   | Create a shared calendar for a group.                                                                                                 | Core container for collaboration.                         |
+| Join via Shareable Link             | Users can join a calendar through a unique URL.                                                                                       | Removes friction.                                         |
+| Unified Event CRUD                  | Create, edit, move, and delete events.                                                                                                | Essential functionality.                                  |
+| Real-Time Updates                   | WebSocket-based live sync for all event changes.                                                                                      | Delivers the collaborative "document" feel.               |
+| User Presence Indicators            | Shows which users are viewing or editing events in real-time, including visual indicators (e.g., small avatars) for concurrent edits. | Enhances collaborative awareness and mitigates conflicts. |
+| Calendar View (Month)               | A single, clean monthly view.                                                                                                         | Keeps MVP simple while meeting expectations.              |
+| Mobile & Desktop UI                 | A responsive interface.                                                                                                               | Practical usability.                                      |
+| **AI: Natural Language → Event**    | Users can type text such as “Planning meeting next Friday at 3pm,” and the system generates the event.                                | Provides meaningful AI practice.                          |
+| **AI: Auto-Generated Descriptions** | AI creates event descriptions based on the title or input text.                                                                       | Enhances UX and demonstrates AI integration.              |
+| Reminders (Email)                   | Simple email notifications before an event.                                                                                           | Basic follow-up functionality.                            |
 
 ## 5.2 Out of Scope (MVP)
 

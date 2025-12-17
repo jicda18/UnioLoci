@@ -91,7 +91,9 @@ This stack defines:
 - **Real-time:** WebSockets (NestJS Gateway)
 
 **Reason:**  
-This stack offers the best balance between future scalability, architectural robustness, real-time support, AI integration, and development productivity. Despite having a bit more boilerplate than Express, its organization and modularity increase speed and quality in the medium term. PostgreSQL is ideal for the type of data in a calendar. React is a standard and fits perfectly with current skills.
+This stack provides significant benefits for the user and product by offering the best balance between future scalability, architectural robustness, real-time support, AI integration, and development productivity. Despite having a bit more boilerplate than Express, its organization and modularity increase speed and quality in the medium term. PostgreSQL is ideal for the type of data in a calendar, ensuring reliable handling of relational data like events, users, and permissions. React is an industry standard for the frontend, delivering a modern web experience.
+
+Additionally, this choice aligns perfectly with the developer's objectives to practice and deepen knowledge in specific technologies of the JavaScript/TypeScript ecosystem, including modern architecture, frameworks, and a consistent stack across frontend, backend, and mobile. NestJS provides an excellent opportunity for learning modular, testable, and scalable backend development, while React reinforces frontend skills in a popular framework.
 
 ---
 
