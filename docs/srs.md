@@ -83,6 +83,11 @@ It consists of:
 - No password required.
 - No registration required.
 
+### FR-1.1 First Login Setup
+
+- If the user is logging in for the first time, the system must prompt for their **Full Name**.
+- Access to other features is restricted until this information is provided.
+
 ### FR-2 Session Persistence
 
 - User remains logged in until token expires or logs out.
@@ -106,7 +111,25 @@ It consists of:
 - User can view a **Monthly** calendar grid.
 - Events are shown by day.
 
----
+### FR-5.1 Transfer Ownership
+
+- The calendar creator can transfer ownership to another member of the calendar.
+- Upon transfer, the original creator becomes a regular member.
+
+### BR-1 Creator Restrictions
+
+- The creator **cannot leave** the calendar.
+- To leave, the creator must first **transfer ownership** to another member OR **permanently delete** the calendar.
+
+### BR-2 Unrestricted Member Access
+
+- **All members** of a calendar have full **read and write access** to all events within that calendar.
+- There are no "read-only" members in the MVP.
+
+### BR-3 AI Rate Limiting
+
+- To control costs, each user is limited to **50 AI requests** (Natural Language Event Creation or Auto-Description) **lifetime** for the MVP.
+- If the limit is exceeded, the user must wait or create events manually.
 
 ## 3.3 Event Management
 
@@ -117,6 +140,11 @@ It consists of:
   - Date & Time
   - Duration
   - Optional description
+
+### FR-6.1 Timezone Handling
+
+- Events are stored reflecting the creator's timezone (or normalized to UTC).
+- For every user, the event date and time are displayed converted to their own local timezone.
 
 ### FR-7 Edit Event
 
@@ -180,6 +208,28 @@ Output:
 
 ---
 
+---
+
+## 3.6 User Management
+
+### FR-15 View Profile
+
+- User can view their own profile details (Email, Name).
+
+### FR-16 Update Profile
+
+- User can update their name.
+- Email is immutable as it is the primary identity.
+
+### FR-17 Delete Account
+
+- User can request account deletion.
+- System soft-deletes the user record.
+- User is removed from all joined calendars.
+- Session is invalidated immediately.
+
+---
+
 # 4. Non-Functional Requirements
 
 ## 4.1 Performance
@@ -202,6 +252,10 @@ Output:
 ### NFR-4 Data Isolation
 
 - Users can only access calendars they explicitly joined.
+
+### NFR-6 Data Privacy (Right to be Forgotten)
+
+- Upon account deletion, all Personally Identifiable Information (PII) must be soft-deleted such that it is no longer visible to other users.
 
 ## 4.3 Reliability
 

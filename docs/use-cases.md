@@ -39,6 +39,19 @@ Prioritization: High for core functionalities (authentication, calendars, events
 - If email is invalid, system displays an error message.  
   **Postconditions:** User is logged in with a valid session.
 
+### UC-1.1: First Login Onboarding
+
+**Primary Actor:** New User  
+**Preconditions:** User has successfully authenticated for the first time.  
+**Main Flow:**
+
+1. System detects user is new.
+2. System presents profile completion screen (Name).
+3. User enters required information.
+4. System saves profile and redirects to dashboard.  
+   **Alternative Flows:** None (step is mandatory).  
+   **Postconditions:** User profile is complete; user has access to features.
+
 ### UC-2: Session Expiration
 
 **Primary Actor:** User  
@@ -109,6 +122,21 @@ Prioritization: High for core functionalities (authentication, calendars, events
 - If user is not creator, system denies access.
 - If name is invalid, system prompts for correction.  
   **Postconditions:** Calendar name is updated for all members.
+
+### UC-6.1: Transfer Calendar Ownership
+
+**Primary Actor:** User (Creator)  
+**Preconditions:** User is the calendar creator; at least one other member exists.  
+**Main Flow:**
+
+1. User selects "Transfer Ownership" from calendar settings.
+2. User selects a member from the list.
+3. User confirms transfer in a dialog.
+4. System updates calendar ownership and demotes original creator to member.  
+   **Alternative Flows:**  
+   - If user is not creator, access denied.  
+   - If no other members exist, action cannot be performed.  
+   **Postconditions:** Calendar has a new owner.
 
 ### UC-7: Leave Calendar
 
@@ -277,6 +305,48 @@ Prioritization: High for core functionalities (authentication, calendars, events
 3. System updates the setting.  
    **Alternative Flows:** None.  
    **Postconditions:** Reminder time is updated for the user.
+
+---
+
+## 7. User Management
+
+### UC-19: View Profile
+
+**Primary Actor:** User  
+**Preconditions:** User is authenticated.  
+**Main Flow:**
+
+1. User navigates to Profile section.
+2. System displays user details (Name, Email, AI Balance).  
+   **Alternative Flows:** None.  
+   **Postconditions:** User views their data.
+
+### UC-20: Update Profile
+
+**Primary Actor:** User  
+**Preconditions:** User is viewing profile.  
+**Main Flow:**
+
+1. User edits allow fields (e.g., Name).
+2. User saves changes.
+3. System updates user record.  
+   **Alternative Flows:**  
+   - If validation fails, show error.  
+   **Postconditions:** User profile updated.
+
+### UC-21: Delete Account
+
+**Primary Actor:** User  
+**Preconditions:** User is authenticated.  
+**Main Flow:**
+
+1. User selects "Delete Account" option.
+2. System shows warning/confirmation dialog.
+3. User confirms deletion.
+4. System soft-deletes user, removes from calendars, invalidates session.  
+   **Alternative Flows:**  
+   - If user cancels, no action taken.  
+   **Postconditions:** User is logged out and account deactivated.
 
 ---
 

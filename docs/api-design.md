@@ -56,7 +56,22 @@ The API is versioned via the URL prefix. The current version is `v1`.
 
 - **`GET /auth/callback?token={magic_token}`**
   - **Description:** Validates the magic token from the email link and returns a session JWT.
-  - **Response (200 OK):** `{ "accessToken": "your_session_jwt" }`
+  - **Response (200 OK):** `{ "accessToken": "your_session_jwt", "isNewUser": true }`
+
+### Users (`/users`)
+
+- **`GET /users/me`**
+  - **Description:** Retrieves the authenticated user's profile.
+  - **Response (200 OK):** `{ "id": "...", "email": "...", "name": "...", "aiRequestsBalance": 50 }`
+
+- **`PATCH /users/me`**
+  - **Description:** Updates the authenticated user's profile.
+  - **Body:** `{ "name": "New Name" }`
+  - **Response (200 OK):** The updated user object.
+
+- **`DELETE /users/me`**
+  - **Description:** Soft-deletes the user's account and removes them from all calendars.
+  - **Response (204 No Content):**
 
 ### Calendars (`/calendars`)
 
@@ -93,6 +108,12 @@ The API is versioned via the URL prefix. The current version is `v1`.
   - **Body:** `{ "shareToken": "unique-share-token" }`
   - **Response (200 OK):** The calendar object the user has joined.
 
+- **`POST /calendars/{calendarId}/transfer`**
+
+  - **Description:** Transfers ownership of the calendar to another member. Only the current creator can perform this.
+  - **Body:** `{ "newOwnerId": "uuid-of-new-owner" }`
+  - **Response (200 OK):** The updated calendar object with the new owner.
+
 - **`DELETE /calendars/{calendarId}/members/me`**
   - **Description:** Allows a user to leave a calendar.
   - **Response (204 No Content):**
@@ -117,6 +138,7 @@ Events are always nested under a calendar.
   - **Description:** Creates an event from a natural language string.
   - **Body:** `{ "text": "Sprint planning next Thursday at 2 pm" }`
   - **Response (201 Created):** The new event object, including the AI-generated description.
+  - **Response (429 Too Many Requests):** `{ "message": "AI request limit exceeded." }`
 
 - **`GET /calendars/{calendarId}/events?from={iso_date}&to={iso_date}`**
 

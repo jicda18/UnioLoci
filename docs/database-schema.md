@@ -27,6 +27,7 @@ erDiagram
         String name
         DateTime createdAt
         DateTime deletedAt
+        Int aiRequestsBalance "Default: 50"
     }
 
     calendars {
@@ -108,6 +109,7 @@ erDiagram
 | `name`       | `VARCHAR(255)` | Nullable         | Display name for the user.               |
 | `createdAt`  | `TIMESTAMPTZ`  | Not Null         | Timestamp of user creation.              |
 | `deletedAt`  | `TIMESTAMPTZ`  | Nullable         | Timestamp for soft-deleting the user.    |
+| `aiRequestsBalance` | `INTEGER` | Not Null, Default: 50 | Number of AI requests available for the user. |
 
 ### `calendars`
 
