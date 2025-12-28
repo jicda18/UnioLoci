@@ -33,7 +33,6 @@ erDiagram
     calendars {
         UUID id PK
         String name
-        String shareToken
         Boolean isPublic
         UUID creatorId FK
         DateTime createdAt
@@ -52,10 +51,9 @@ erDiagram
         UUID calendarId FK
         String title
         String description
-        DateTime startTime
-        DateTime endTime
+        DateTime startAt
+        DateTime endAt
         DateTime createdAt
-        DateTime updatedAt
         DateTime deletedAt
     }
 
@@ -117,7 +115,6 @@ erDiagram
 | ------------- | -------------- | ------------------------ | -------------------------------------------- |
 | `id`          | `UUID`         | Primary Key              | Unique identifier for the calendar.          |
 | `name`        | `VARCHAR(255)` | Not Null                 | Name of the shared calendar.                 |
-| `shareToken`  | `VARCHAR(255)` | Nullable                 | Token used to join private calendars.        |
 | `isPublic`    | `BOOLEAN`      | Not Null, Default: false | If true, the calendar is viewable by anyone. |
 | `creatorId`   | `UUID`         | Foreign Key (users.id)   | The user who created the calendar.           |
 | `createdAt`   | `TIMESTAMPTZ`  | Not Null                 | Timestamp of calendar creation.              |
@@ -141,10 +138,9 @@ This is a join table representing the many-to-many relationship between users an
 | `calendarId`  | `UUID`         | Foreign Key (calendars.id) | The calendar this event belongs to.             |
 | `title`       | `VARCHAR(255)` | Not Null                   | The title of the event.                         |
 | `description` | `TEXT`         | Nullable                   | Detailed description, potentially AI-generated. |
-| `startTime`   | `TIMESTAMPTZ`  | Not Null                   | Start date and time of the event.               |
-| `endTime`     | `TIMESTAMPTZ`  | Not Null                   | End date and time of the event.                 |
+| `startAt`   | `TIMESTAMPTZ`  | Not Null                   | Start date and time of the event.               |
+| `endAt`     | `TIMESTAMPTZ`  | Not Null                   | End date and time of the event.                 |
 | `createdAt`   | `TIMESTAMPTZ`  | Not Null                   | Timestamp of event creation.                    |
-| `updatedAt`   | `TIMESTAMPTZ`  | Not Null                   | Timestamp of the last update.                   |
 | `deletedAt`   | `TIMESTAMPTZ`  | Nullable                   | Timestamp for soft-deleting the event.          |
 
 ### `event_logs`
